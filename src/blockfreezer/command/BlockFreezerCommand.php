@@ -30,7 +30,7 @@ class BlockFreezerCommand extends Command{
         ];
         $sender->sendMessage("BlockFreezer commands:");
         foreach($commands as $name => $description){
-            $sender->sendMessage("/blockfreezer ".$name.": ".$description);
+            $sender->sendMessage("/blockfreezer $name: $description");
         }
     }
     /**
@@ -49,7 +49,7 @@ class BlockFreezerCommand extends Command{
                 case "addblock":
                     if(isset($args[1]) and isset($args[2]) and isset($args[3])){
                         if($this->plugin->addBlock($args[1], $args[2], $args[3])){
-                            $sender->sendMessage(TextFormat::GREEN."Successfully added ".$args[1].":".$args[2]." to ".$args[3].".");
+                            $sender->sendMessage(TextFormat::GREEN."Successfully added $args[1]:$args[2] to $args[3].");
                         }
                         else{
                             $sender->sendMessage(TextFormat::RED."Failed to add.");
@@ -69,7 +69,7 @@ class BlockFreezerCommand extends Command{
                                 $values .= trim($id).", ";
                                 $count++;
                             }
-                            $sender->sendMessage(TextFormat::AQUA."Found ".$count." block type(s) for ".$name.": ".$values);
+                            $sender->sendMessage(TextFormat::AQUA."Found $count block type(s) for $name: $values");
                         }
                         else{
                             $sender->sendMessage(TextFormat::RED."That world file couldn't be found.");
@@ -83,7 +83,7 @@ class BlockFreezerCommand extends Command{
                 case "delblock":
                     if(isset($args[1]) and isset($args[2]) and isset($args[3])){
                         if($this->plugin->removeBlock($args[1], $args[2], $args[3])){
-                            $sender->sendMessage(TextFormat::GREEN."Successfully removed ".$args[1].":".$args[2]." to ".$args[3].".");
+                            $sender->sendMessage(TextFormat::GREEN."Successfully removed $args[1]:$args[2] from $args[3].");
                         }
                         else{
                             $sender->sendMessage(TextFormat::RED."Failed to remove.");
