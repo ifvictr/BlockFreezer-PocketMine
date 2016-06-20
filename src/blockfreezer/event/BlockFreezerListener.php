@@ -21,8 +21,8 @@ class BlockFreezerListener implements Listener{
      * @ignoreCancelled true
      */
     public function onBlockUpdate(BlockUpdateEvent $event){
-	    if($this->plugin->isFreezable($event->getBlock())){
-	        $event->setCancelled(true);
-	    }
+	if($this->plugin->isFreezable($event->getBlock())){
+	    $event->setCancelled(true);
+	}
     }
 }
