@@ -58,7 +58,7 @@ class BlockFreezerCommand extends Command{
                     else{
                         $sender->sendMessage(TextFormat::RED."Please specify an id, damage value, and world name.");
                     }
-                    return true;
+                    break;
                 case "b":
                 case "blocks":
                     if(isset($args[1])){
@@ -78,7 +78,7 @@ class BlockFreezerCommand extends Command{
                     else{
                         $sender->sendMessage(TextFormat::RED."Please specify a world name.");
                     }
-                    return true;
+                    break;
                 case "d":
                 case "delblock":
                     if(isset($args[1]) and isset($args[2]) and isset($args[3])){
@@ -92,13 +92,13 @@ class BlockFreezerCommand extends Command{
                     else{
                         $sender->sendMessage(TextFormat::RED."Please specify an id, damage value, and world name.");
                     }
-                    return true;
+                    break;
                 case "help":
                     $this->sendCommandHelp($sender);
-                    return true;
+                    break;
                 default:
                     $sender->sendMessage("Usage: /blockfreezer <sub-command> [parameters]");
-                    return false;
+                    break;
             }
         }
         else{
